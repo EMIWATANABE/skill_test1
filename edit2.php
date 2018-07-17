@@ -9,13 +9,16 @@
     $id = $_GET['id'];
 
     $sql = 'SELECT * FROM `tasks` WHERE `id` = ?';
-    $data[] = $_GET['id'];
+    $data[] = $id;
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
 
     $comment = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $dbh = null;
+
+
+
 
  ?>
 
@@ -39,14 +42,15 @@
           <div class="form-group">
             <label for="task">タスク</label>
             <input name="title" class="form-control" id="validate-text" placeholder="title" required value="<?php echo $comment['title'] ?>">
+            <input type="hidden" name="id" value="<?php echo $comment['id'] ?>">
           </div>
           <div class="form-group">
             <label for="date">日程</label>
-            <input type="date" name="date" class="form-control" required value="<?php echo $comment['date'] ?>
+            <input type="date" name="date" class="form-control" required value="<?php echo $comment['date'] ?>">
           </div>
           <div class="form-group">
             <label for="detail">詳細</label>
-            <textarea type="text" class="form-control" name="comment" id="validate-length" placeholder="detail" required><?php echo $comment['detail'] ?></textarea><br>
+            <textarea type="text" class="form-control" name="detail" id="validate-length" placeholder="detail"><?php echo $comment['detail'] ?></textarea><br>
           </div>
           <input type="submit" class="btn btn-primary col-xs-12" value="編集完了">
         </form>

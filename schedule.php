@@ -46,30 +46,21 @@
     border-radius: 9px;">タスク管理</div></h2>
 
         <div class="col-xs-4">
-          <a href="post.php" style="display: inline-block; text-decoration: none; color: rgba(255, 255, 255, 0.47); background: #8cd460; font-weight: bold;
-    width: 120px;
-    height: 120px;
-    line-height: 120px;
-    border-radius: 50%;
-    text-align: center;
-    vertical-align: middle;
-    overflow: hidden;
-    box-shadow: 0px 0px 0px 5px #8cd460;
-    border: solid 2px rgba(255, 255, 255, 0.47);
-    transition: .4s;">ａｄｄ</a>
+          <div style="position:fixed; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px;">
+          <a href="post.php" class="add">ａｄｄ</a>
         </div>
-<?php foreach ($comment as $comment): ?>
+        </div>
         <div class="col-xs-8">
+          <?php foreach ($comment as $comment): ?>
           <div class="task">
             <h3><?php echo $comment['date'] ?><span> </span><a href="edit2.php?id=<?php echo $comment["id"]; ?>" class="btn btn-default btn-" style="color: lightblue">編集</a><span> </span><a href="delete2.php?id=<?php echo $comment["id"]; ?>" class="btn btn-default" style="color: lightpink">削除</a></h3>
             <div class="content">
               <h3 style="font-weight: bold;"><?php echo $comment['title']; ?></h3>
               <h4><?php echo $comment['detail']; ?></h4>
-              <?php endforeach; ?>
             </div>
           </div>
+          <?php endforeach; ?>
         </div>
-
       </div>
     </div>
   </div>

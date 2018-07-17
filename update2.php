@@ -11,7 +11,7 @@
     $detail = htmlspecialchars($_POST['detail']);
     $id = htmlspecialchars($_POST['id']);
 
-    $sql = 'UPDATE `tasks` SET `date` = ?, `title` = ?, `detail` = ?, WHERE `id` = ? ';
+    $sql = 'UPDATE `tasks` SET `date` = ?, `title` = ?, `detail` = ? WHERE `id` = ? ';
     $data[] = $date;
     $data[] = $title;
     $data[] = $detail;

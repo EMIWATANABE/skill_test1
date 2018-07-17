@@ -23,9 +23,11 @@
         $data[] = $detail;
         $stmt = $dbh->prepare($sql);
         $stmt->execute($data);
+
+    header("Location: schedule.php");
+    exit();
       }
     }
-
 
  ?>
 
